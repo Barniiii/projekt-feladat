@@ -1,0 +1,57 @@
+﻿<Window x:Class="vlm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vlm"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="525" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Versenyzői Adatlap" FontSize="26" FontWeight="Bold" Foreground="#2E3A59" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top">
+            <TextBlock Text="Név:" FontSize="16" Margin="0,5,0,0"/>
+            <TextBox x:Name="NevInput" FontSize="16"/>
+
+            <TextBlock Text="Tapasztalat:" FontSize="16" Margin="0,5,0,0"/>
+            <TextBox x:Name="TapasztalatInput" FontSize="16"/>
+
+            <TextBlock Text="Verseny neve:" FontSize="16" Margin="0,5,0,0"/>
+            <TextBox x:Name="VersenyInput" FontSize="16"/>
+
+
+            <TextBlock Text="Csapat neve:" FontSize="16" Margin="0,5,0,0"/>
+            <TextBox x:Name="CsapatInput" FontSize="16"/>
+
+            <TextBlock Text="Korosztály:" FontSize="16" Margin="0,5,0,0"/>
+            <ComboBox x:Name="KorosztalyInput" FontSize="16">
+                <ComboBoxItem Content="14-18 év"/>
+                <ComboBoxItem Content="19-23 év"/>
+                <ComboBoxItem Content="24+ év"/>
+            </ComboBox>
+
+            <StackPanel x:Name="LapPanel" Grid.Row="1" VerticalAlignment="Top">
+                <CheckBox x:Name="PirosLapInput" Content="Kapott piros lapot?" FontSize="16" Checked="PirosLapInput_Checked" Unchecked="PirosLapInput_Unchecked"/>
+                <StackPanel x:Name="PirosLapMennyisegPanel" Visibility="Collapsed">
+                    <TextBlock Text="És mennyit?" FontSize="16"/>
+                    <TextBox x:Name="PirosLapSzamInput" FontSize="16"/>
+                </StackPanel>
+
+                <CheckBox x:Name="SargaLapInput" Content="Kapott sárga lapot?" FontSize="16" Checked="SargaLapInput_Checked" Unchecked="SargaLapInput_Unchecked"/>
+                <StackPanel x:Name="SargaLapMennyisegPanel" Visibility="Collapsed">
+                    <TextBlock Text="És mennyit?" FontSize="16"/>
+                    <TextBox x:Name="SargaLapSzamInput" FontSize="16"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="Mentés" Padding="10,5" Margin="0,20,0,0" HorizontalAlignment="Center"
+            Background="#FF6F00" Foreground="White" FontWeight="Bold" FontSize="16" Click="Mentes_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿<Window x:Class="vlm.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Csapat Statisztika" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Csapat Statisztika" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <ListView x:Name="CsapatListView" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Csapat" DisplayMemberBinding="{Binding Csapat}" Width="150"/>
+                    <GridViewColumn Header="Versenyzők száma" DisplayMemberBinding="{Binding VersenyzokSzama}" Width="120"/>
+                    <GridViewColumn Header="Összes nyereség" DisplayMemberBinding="{Binding OsszNyereseg}" Width="100"/>
+                    <GridViewColumn Header="Összes veszteség" DisplayMemberBinding="{Binding OsszVeszteseg}" Width="100"/>
+                    <GridViewColumn Header="Piros lapok" DisplayMemberBinding="{Binding PirosLapok}" Width="80"/>
+                    <GridViewColumn Header="Sárga lapok" DisplayMemberBinding="{Binding SargaLapok}" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Versenyzői statisztika" Click="OpenVersenyzoStat_Click" Margin="10" Padding="10,5"/>
+            <Button Content="Bezárás" Click="Close_Click" Margin="10" Padding="10,5"/>
+        </StackPanel>
+    </Grid>
+</Window>
